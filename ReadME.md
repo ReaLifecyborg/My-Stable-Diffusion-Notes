@@ -1,13 +1,13 @@
-###This is a note about AI Art for evryone
+### This is a note about AI Art for evryone
 
-##All the information mentioned in this journey is information that the author(me) gathered from opensource or personal experiment with the AI
-##All the opinion expressed here is to be taken as a personal experience and not a 100% true factual data and the media in this document is not to be used for any commercial purpose. 
-##Please enjoy the content and take the knowledge gained from here for yourself
+## All the information mentioned in this journey is information that the author(me) gathered from opensource or personal experiment with the AI
+## All the opinion expressed here is to be taken as a personal experience and not a 100% true factual data and the media in this document is not to be used for any commercial purpose. 
+## Please enjoy the content and take the knowledge gained from here for yourself
 
-##OverView
+## OverView
 This journey include few parts, namely the first introduction to the whole stable diffusion for beginner(in windows environment), some techniques I learn along the way of experiment and communication with other users, and some results with prompts to reproduce the exact output, if it was set up correctly.
 
-##The Questions
+## The Questions
 •	Why stable diffusion ?: 
 Although there is other AI art work generated with other platforms and tools, Stable Diffusion remains one of the most up to date and customizable tool to the AI art in this generation, other comparative such as Midjourney and niji.journey can produce AI art work, but generally hard to customize to the extend of that of stable diffusion.
 •	What can be customized? :
