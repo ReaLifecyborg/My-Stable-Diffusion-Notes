@@ -111,7 +111,9 @@ Seed: 1613920577
 Model: 9527_v10.ckpt[40a9f4ec37](with VAE)
 Leave every other setting unchecked, such as highres fix, restore faces etc.
 Press the generate button and one should expect the following picture output:
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/9.png)
+
 If the picture is not exactly the same, do make sure the setting are set correctly
 
 The Basic Feature of text2img is explained, similarly, img2img works mostly the same except you can choose to let the ai to draw only the masked part/every part except the masked part, you can either upload your mask or draw the mask on the “Inpaint” tab inside img2img feature, there are two feature that need to be addressed, denoising strength decide how far the AI can differentiate the output from the input, the higher the denoising strength number, the more the AI can do in the free work space, in another word, more non based on the original input. Another is CFG scale, as mentioned before, make sure your CFG scale is high so the AI do not ignore your tags.
