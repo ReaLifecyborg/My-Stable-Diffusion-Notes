@@ -143,6 +143,7 @@ Lora Model trained for specific character(lucia-crimson-abyss)
 
 Unexpected use case for generating realistic photo of man(koreandoll).
 *This also inspire alternate use case of faking person for sock puppet accounts, as thispersondoesnotexist.com provide only image of fake person photo generated with the nose at exact same place in every photo which is easy to spot for other AI.*
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/18.png)
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/19.png)  
 
