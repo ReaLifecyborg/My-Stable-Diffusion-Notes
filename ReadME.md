@@ -289,26 +289,31 @@ By merging different checkpoint, user would be able to obtain a customized art s
 For the last part of this document so far, here are some AI arts I managed to generate over different time periods of my studying and experimenting with stable diffusion at general. The prompt might not be as optimal as I have generated them since very start of my journey.(Note: different checkpoints and lora models are used, any/all picture is not for simulate any real existed person)
 
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/39.png)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/40.png)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/41.png)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/42.png)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/43.png)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/44.png)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/45.png)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/46.png)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/47.png)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/48.png)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/49.png)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/50.png)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/51.png)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/52.png)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/53.png)
-
-  
-  
-  
-  
- 
-  
-
-
