@@ -124,17 +124,28 @@ note the deepbooru can only give you the positive prompt, as it would not be abl
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/11.png)
 These pretty much explained all features one uses to generate AI art work, but advanced features exist for those who want even more customization, here are some example of advance use case with different checkpoint models and 
 models:
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/12.png)
+
 Self trained Specific character lora model(not open to public for download) from franchies(ムラサメ from 千恋＊万花) as requested by friend(an example for how to train your own lora models later)
 Generated with negative prompt embedding(easynegative) and self merged model(currently not open to public for download, would be instead used as an example for how to merge your own model later)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/13.png)![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/14.png)
+
 Lora Model aiming to change art style(hukestyle) with anything v4.5 checkpoint(left) and same seed without the lora(right)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/15.png)
+
 Lora Model trained for specific character(lucia-crimson-abyss)
-![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/16.png)![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/17.png)
+
+![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/16.png)
+![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/17.png)
+
 Unexpected use case for generating realistic photo of man(koreandoll).
 *This also inspire alternate use case of faking person for sock puppet accounts, as thispersondoesnotexist.com provide only image of fake person photo generated with the nose at exact same place in every photo which is easy to spot for other AI.*
-![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/18.png)![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/19.png)  
+![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/18.png)
+![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/19.png)  
+
 Checkpoints aiming for realisitc photo generation(cheese daddy’s landscape)
 
  
