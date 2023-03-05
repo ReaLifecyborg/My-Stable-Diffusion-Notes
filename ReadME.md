@@ -1,4 +1,4 @@
-### This is a note about AI Art for evryone
+# This is a note about AI Art for evryone
 
 ## All the information mentioned in this journey is information that the author(me) gathered from opensource or personal experiment with the AI
 ## All the opinion expressed here is to be taken as a personal experience and not a 100% true factual data and the media in this document is not to be used for any commercial purpose. 
