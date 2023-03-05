@@ -54,7 +54,9 @@ Another optional setting would be the git pull command, which allow the webui to
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/4.png) 
 After setting up the webui-user.bat, you should get along and set up the webui itself.
 For the first time you launch the webui, you would face a long downloading for the deepdanboru extension and other features in the webui, after the update and downloads, you would be greeted with this page in your terminal:
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/5.png)
+
 You can see the to create a public link, set ‘share=True’ in launch(), I suggest against it, you can setup the webui in google colab easily if you choose to use it remotely, setting the local machine to be a public accessible host server is a dangerous act given that the webui is known to be an exploitable vector to obtain local file from your machine with some extension you can download *within* the webui.
 If you have set the --autolaunch as I stated above, you would not need to copy and paste the url in your browser, instead the UI would be launched in your browser automatically.
  
@@ -157,12 +159,14 @@ Some lora model can be found in civitai and hugging face, exploration is encoura
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/21.png)
 
 By clicking the model here, it would be shown up as a prompt in your positive prompt(or negative prompt if you are editing negative prompt), however directly using the lora model might not be as desired.
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/22.png)
+
 As an example, for huke style to work best in favor of anything v4.5 model, a weight of 1.2 is better than 0.8 , the user can also mix in multiple lora model to have their own desired output, including art style, specific character and the action of the character in the output.
  
 
 ## But what is a weight?
-	**To talk about weight, we must first understand how the structure of prompt affect the output, properly writing a prompt list can help to gain more accurate result to your desired outcome.**
+**To talk about weight, we must first understand how the structure of prompt affect the output, properly writing a prompt list can help to gain more accurate result to your desired outcome.**
 
 •	What is a prompt? 
 As the two of the most widely used base model, novel ai and stable diffusion, are trained from large amount of data(picture) with many tags such as “a photo of dog”, “blue hat” which are either tagged by human effort or done by auto tagging AI, most of other models, also have a similar prompt list. In this case the tags of the pictures are used as prompt. Hence, instead of directly saying “A guy walking on the street in night wearing a black hoodie holding an umbrella”, the AI might take the sentence into multiple short prompt such as “A guy” “walking on the street” if the sentence itself is rather hard to understand, this however might defer if the sentence is a tag itself by using something like “A_guy_walking_on_the_street” which directly bond those element together.
@@ -177,30 +181,40 @@ A poorly written prompt would have some characteristics of multiple bracket uses
  	Have you ever faced writing a “(1 girl:1.5)” and got 2 girls? You just found an element leaks!
 
 Lets say you want to produce a picture of a girl in a night, but instead of 1 girl, the AI gave you 2 girl, even though you have added high weight to the “1 girl” prompt.
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/23.png)
+
 This is an example of element leaks, the picture was drawn in 1520*512 dimension with 65 steps in euler a, the generation info is as follows:
 masterpiece,(1 girl:1.5),long hair, twintail, black hair, hair between eyes, white dress, bare shoulders, holding blue flowers, night, water, beach, stars, galaxy,black fog,dense fog,moon, upperbody,close up,
 Negative prompt: lowres, bad anatomy, bad hands, text, error, missing fingers, nsfw,nude
 Steps: 65, Sampler: Euler a, CFG scale: 7, Seed: 2549776467, Size: 1520x512, Model hash: 89d59c3dde, Model: nai, Clip skip: 2, ENSD: 31337
 The problem we encounter here is due to how the AI try to draw the elements you gave in each steps in this huge dimension, we have 65 steps and quite a small amount of elements while giving a huge space to let the AI to work with. As we have only specified these elements, the AI would tends to repeat the cycle of drawing after certain steps. This obviously would result in ignoring the (1 girl:1.5) tag in the output, although technically the AI is drawing (1 girl:1.5) correctly, it just so happens that the AI repeated the process, and result in this manner.
 This problem can be easily avoided, either by decreasing the dimension , or simply give more prompts to the AI to draw in the remaining space. By adding “flower petals,wind,floating hair” in positive prompt, we have successfully filled the remaining space. But now we can see the hand drawn is messed up, so how do we fix it?
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/24.png)
+
 Remember there is a thing called negative prompt, where we can fill what element we do not want to show up in the end result?
 The Negative prompt for the picture is as follows:
 lowres, bad anatomy, bad hands, text, error, missing fingers, nsfw,nude
 We can see there is already a “bad hands” and “missing fingers” in the negative prompt, but why would the hand in the end product is still so bad? There are a few reasons I can think of myself that can explain this, either because of the mis-tagging of the training materials, the steps is not enough for the AI to finish drawing the hands(not in this case), or that simply you got bad luck.
 However now we have some general counter measures to avoid some of these problems regarding to mutation on body structure. Lora model and embeddings can be used to alter the overall looks for objects, this is why there exist character specific lora model that allow us to generate certain characteristics consistently.
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/25.png)
+
 By using one of the many textual inversion model(easynegative) in negative prompt, the problem is solved.
 There is also a commonly encountered problem regarding the output is not using the correct coloring, ”red flower and blue hat” becomes “red flower and red hat” situation is likely caused by certain element overpowering other elements. It might happen due to too many description of a certain object, which leads to pollution to other objects or simply some tag being overwhelmingly used in training process(general tag like masterpiece or nsfw is an easy example).
  
 
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/26.png)
+
 1 girl,solo,blue shirt,blue glasses,blue flower,detailed red eyes,blue dress,(blue jacket:1.2),blue hair,long hair,blue ribbon,
 Steps: 20, Sampler: Euler a, CFG scale: 7, Seed: 3380088806, Size: 512x512, Model hash: 6e430eb514, Model: anything-v4.5-pruned, Clip skip: 2, ENSD: 31337
 Here is an example of element pollution with prompts given, although “(blue jacket:1.2)” is given in prompt, “red eyes” overpower the “blue jacket” to create a “red jacket”.
 The object output is not as what we described, the reason behind this result is not yet fully understood, but I suspect that it is due to “detailed red eyes” got separated as “ detailed, red, eyes” by the AI, this can be proven by using the same seed, instead of “detailed red eyes,” , we instead uses “detailed_red_eyes” to bond the relationship between elements(left side), or by advance structure writing “[detailed red eyes:0.5]” which means to only start drawing the red eyes after 50% of the rendering(right side).
-![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/27.png)![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/28.png)
+
+![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/27.png)
+![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/28.png)
+
 Example of advance structure writing:
 [A:B:0.3] A would be rendered into the output till 30% of the total steps, B would start to be rendered since 30% of the total steps until all rendering is finished
 [A:0.5] A would be rendered since the 50% mark of total steps
@@ -223,15 +237,23 @@ If you are able to understand Japanese, I strongly recommend you to read this bl
 In short, set up a lora training script by using “git pull https://github.com/derrian-distro/LoRA_Easy_Training_Scripts” with git bash in windows, take either the lora_train_popup.py or lora_train_command_line.py and set up a directory for the training material according to the guide given above.
 Use “venv\Scripts\activate” command in powershell with admin privileges after navigated to the directory of the training script, then use “accelerate launch --num_cpu_threads_per_process 12 < >”(replace <> with the script name.py) to call the training script and give the input folder as the path to the material you have gathered.
 Preprocessing the images is needed, one way of doing it would be manually cutting the images into same aspect ratio, then proceed stable diffusion webui’s train tab and give the path to the gathered material. 
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/29.png)
+
 Set the width and height to match the aspect ratio of the picture, note that the picture can be rotated and would not negatively affect the result of the model training process. Set the destination path for the processed material, check “create flipped copies” and “Use deepbooru for caption” and click preprocess.
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/30.png)
+
 After preprocessing of the picture is done, rename the output folder for the material to <>_Name, replace <> with the number of cycles you want the lora training to go through. You would also like to select the parent directory of the resource directory, instead of the resource directory itself as the input for the model training. Every other setting can be left as default.
 After all the steps mentioned in above, you would be able to see the following outputs:
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/31.png)
+
 Which states the training has begun.	
 The example ムラサメ.safetensor is a result of 36 pictures in 1:1 aspect ratio trained with anything v 4.5 checkpoint, that is tagged with deepdanbooru. The training progress took about 10 minutes. The training for lora model is much more easier than using dreambooth in older version. That’s why I encourage you to try and make some models yourself, you can even merge the checkpoint with the lora model as lora model is technically a small dreambooth model.(left side is the training material and right being the output)
-![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/32.png)![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/33.png)
+
+![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/32.png)
+![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/33.png)
 
 ## Checkpoint merging
 To merge checkpoint, I recommend using the merge block weighted extension that you can directly install from the extension tab. There are preset weight that you can experiment with, I would give a basic walkthrough for how the thing works:
@@ -240,22 +262,32 @@ Save_as_safetensor, safetensor is a relatively new file format that suppose to p
 When IN00~11 and OUT00~11 are all 0, it means model A would be the output while when both IN00~11 and OUT00~11 are 1, it means model B would be the output. A deeper breakdown is available from blog.
 For the sample here, you would need to download schoolmax2.5d and anything v4.5 to go along.
 Set Schoolmax2.5d as model A and anything v4.5 as model B, set Base_alpha as 1 and set OUT05 as 1, while leaving everything else as 0, check save as safetensors and name it anything you like for the output model.
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/34.png)
+
 Then click run merge and wait for a few seconds. You can then reload the model list and be able to see your new merged models. Now run a test with the following prompt:
 Positive prompt:(flat color:0.9),(colorful:1.1),(masterpiece:1,2), best quality, masterpiece, highres, original, extremely detailed wallpaper, looking at viewer,,,1girl,solo,Bunny Girl,Portrait
 Negative prompt: (worst quality, low quality, extra digits:1.4),
 Steps: 20, Sampler: DPM++ SDE, CFG scale: 8, Seed: 349229071, Size: 512x512, Model hash: 5ae9286947,Clip skip: 2, ENSD: 31337
  
 Which should give a result like this: 
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/35.png)
+
 When compared to the two base model(schoolmax2.5d at left and anything at right)
-![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/36.png)![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/37.png)
+
+![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/36.png)
+![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/37.png)
+
 You can notice some difference in art style, especially at face, or you can set out04 as 1 also to obtain a more close to anything v4.5 art style:
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/38.png)
+
 By merging different checkpoint, user would be able to obtain a customized art style performance for their checkpoint.
  
 ## And At the End showcase of AI art
 For the last part of this document so far, here are some AI arts I managed to generate over different time periods of my studying and experimenting with stable diffusion at general. The prompt might not be as optimal as I have generated them since very start of my journey.(Note: different checkpoints and lora models are used, any/all picture is not for simulate any real existed person)
+
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/39.png)
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/40.png)
 ![alt text](https://github.com/ReaLifecyborg/My-Stable-Diffusion-Notes/blob/main/41.png)
